@@ -27,3 +27,32 @@ let   [a,b] =  describeValue(ValueWord)
 
 
 console.log(` ${a} | ${b} `)
+
+// Bd weekdays calculations : 
+
+let WeekDay = "dhaka"
+
+
+function getDayType(day) {
+
+      switch (day.toUpperCase()) {
+        case "FRIDAY":
+        case "SATURDAY":
+            console.log("Holiay");
+            break;
+        case "SUNDAY": 
+        case "MONDAY":
+        case "TUESDAY":
+        case "WEDNESSDAY":
+        case "THURSDAY":
+            console.log("Working Day");
+            break;
+        default :
+            console.log("Invalid Day");
+      }
+
+
+}
+
+
+getDayType(WeekDay)
