@@ -56,3 +56,69 @@ function getDayType(day) {
 
 
 getDayType(WeekDay)
+
+// problem -3 : Username Gatekeeper
+
+let userName = "Raseel ADMINS"
+
+// console.log(userName.length)
+
+function validateUserName(name) {
+
+
+    if  (name.length < 4 ) {
+        return "Too Short !";
+
+    }
+
+     for (let x of name){
+        if (x ==" "){
+            return "No Space Allowed" ;
+        }
+     }
+
+     if (name.toLowerCase().includes("admin")){
+        return "Reserved Word !";
+     }
+
+
+ return "Available!";
+}
+
+
+console.log(validateUserName(userName))
+
+
+// PROBLEM-4 : cng fare meter:
+
+
+function getCNGfare(distance, night=false, time=0){
+
+ let fare = 0
+    if (distance <= 2  &&  time ==0 ) {
+        fare = 50 ;
+    }
+    else if(distance <=2 && time !=0){
+        fare = 50 + time*2 ;
+    }
+    else if ( distance > 2 && time == 0 ) {
+         fare = 50 + (distance-2)*15 ; 
+    }
+    else if (distance >2 && time != 0 ) {
+        fare = 50 + (distance-2)*15 + time*2 ;
+
+    }
+
+
+    if (night == true){
+        return  fare + 0.2*fare ;
+    }
+    else {
+        return fare ;
+    }
+
+
+}
+
+    
+    console.log(getCNGfare(10))
