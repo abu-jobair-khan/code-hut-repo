@@ -1,9 +1,5 @@
-// console.log("hello world")
 
-
-// A function that describes  data types with boolean value 
-
-let  ValueWord = 0
+//problem-1: A function that describes  data types with boolean value
 
 
 function describeValue (x) {
@@ -21,45 +17,35 @@ function describeValue (x) {
     }
 }
 
-
-
-let   [a,b] =  describeValue(ValueWord)
-
-
+let   [a,b] =  describeValue(true)
 console.log(` ${a} | ${b} `)
 
-// Bd weekdays calculations : 
-
-let WeekDay = "dhaka"
-
+//problem2: Bd weekdays calculations : 
 
 function getDayType(day) {
 
       switch (day.toUpperCase()) {
         case "FRIDAY":
         case "SATURDAY":
-            console.log("Holiay");
-            break;
+            return "Weekend" ;
         case "SUNDAY": 
         case "MONDAY":
         case "TUESDAY":
         case "WEDNESSDAY":
         case "THURSDAY":
-            console.log("Working Day");
-            break;
+            return "Working Day";
         default :
-            console.log("Invalid Day");
+            return "Invalid Day";
       }
 
 
 }
 
-
-getDayType(WeekDay)
+console.log(getDayType("MONDAY"))
 
 // problem -3 : Username Gatekeeper
 
-let userName = "Raseel ADMINS"
+let userName = "Raseelvayadmit"
 
 // console.log(userName.length)
 
@@ -71,10 +57,8 @@ function validateUserName(name) {
 
     }
 
-     for (let x of name){
-        if (x ==" "){
-            return "No Space Allowed" ;
-        }
+     if (name.includes(" ")) {
+        return "No Space is required!"
      }
 
      if (name.toLowerCase().includes("admin")){
@@ -122,3 +106,33 @@ function getCNGfare(distance, night=false, time=0){
 
     
     console.log(getCNGfare(10))
+
+
+// problem-5 : run chase commentator :
+
+const getChaseVerdict = (target, scored, ballsleft) => {
+
+    let runsNeeded = target - scored 
+
+    if (runsNeeded <=0 ) {
+        return "Won" ;
+    }
+    else if ( runsNeeded !=0 && ballsleft == 0) {
+        return "Lost" ;
+    }
+    else if (runsNeeded !=0 &&  ballsleft !=0) {
+        let requiredRate = (runsNeeded / ballsleft)*6 ;
+        if ( requiredRate <=6 ){
+            return `Need ${runsNeeded} runs in ${ballsleft} balls |  Comfortable` ;
+        }
+        else if (requiredRate  > 6 &&  requiredRate <=12 )  {
+            return `Need ${runsNeeded} runs in ${ballsleft} balls |  Tough`;
+        }
+        else if ( requiredRate > 12) {
+            return `Need ${runsNeeded} runs in ${ballsleft} balls |  Almost Impossible`;
+        }
+    }
+    
+}
+
+console.log(getChaseVerdict(200,190,12))
